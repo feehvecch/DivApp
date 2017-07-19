@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="rosa">
+      <ion-buttons left>
+        <ion-title>DivApp</ion-title>
+      </ion-buttons>
+      <ion-buttons end>
+      <button ion-button icon-only (click)="ionViewDidLoad()">
+        <ion-icon name="body"></ion-icon> Meu Local
+      </button>
+    </ion-buttons>
+    </ion-navbar>
+    <ion-toolbar>
+        <ion-searchbar [(ngModel)]="query" (ionInput)="searchPlace()"></ion-searchbar>
+    </ion-toolbar>
+    <ion-list>
+        <ion-item *ngFor="let place of places" (click)="selectPlace(place)">{{place.description}}</ion-item>
+    </ion-list>
+</ion-header>
+
+<ion-content overflow-scroll=”false”>
+
+    <div #pleaseConnect id="please-connect">
+        <p>Please connect to the Internet...</p>
+    </div>
+
+    <div #map id="map" data-tap-disabled="true">
+    </div>
+
+</ion-content>
